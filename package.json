@@ -1,0 +1,15 @@
+{
+  "name": "coding-dojos",
+  "version": "1.0.0",
+  "description": "Set of katas for coding dojo",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "^10.2.0"
+  }
+}
