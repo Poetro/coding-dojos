@@ -119,32 +119,43 @@ describe("I can haz addends?", function () {
       describe(`${n} values to add up`, function () {
         it("should return false if not enough items", function () {
           const zeros = Array.from({ length: n - 1 }, () => 0);
+
           assert.equal(doesItAddsUpN(zeros, 0, n), false);
         });
+
         it("should return true if all are 0", function () {
           const zeros = Array.from({ length: n * 2 }, () => 0);
+
           assert.equal(doesItAddsUpN(zeros, 0, n), true);
         });
+
         it("should return true if all are 1", function () {
           const ones = Array.from({ length: n * 2 }, () => 1);
+
           assert.equal(doesItAddsUpN(ones, n, n), true);
         });
+
         it("should return false if all are 1 but searching for 0", function () {
           const ones = Array.from({ length: n * 2 }, () => 1);
+
           assert.equal(doesItAddsUpN(ones, 0, n), false);
         });
+
         it("should return true for exponents of 2", function () {
           const exponents = Array.from(
             { length: n * 2 },
             (_, index) => index * 2
           );
+
           assert.equal(doesItAddsUpN(exponents, 1 << n, n), true);
         });
+
         it("should return false for exponents of 2 when searching odd", function () {
           const exponents = Array.from(
             { length: n * 2 },
             (_, index) => index * 2
           );
+
           assert.equal(doesItAddsUpN(exponents, 1 + (1 << n), n), false);
         });
       });
