@@ -30,11 +30,11 @@ function doesItAddsUpN(values, result, valuesToAddUp) {
   if (typeof result !== "number" || Number.isNaN(result))
     throw new TypeError("The result must be a number");
   if (typeof valuesToAddUp !== "number" || Number.isNaN(valuesToAddUp))
-    throw new TypeError("The items must be a number");
+    throw new TypeError("The valuesToAddUp must be a number");
   if (valuesToAddUp < 1) {
-    throw new RangeError("The items need to be at least 1");
+    throw new RangeError("The valuesToAddUp need to be at least 1");
   }
-  // There are not enough items, fail fast.
+  // There are not enough values to add up, fail fast.
   if (values.length < valuesToAddUp) return false;
   
   return _doesItAddUpN(values, result, valuesToAddUp);

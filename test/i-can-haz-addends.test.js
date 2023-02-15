@@ -2,7 +2,7 @@ const assert = require("assert");
 const { doesItAddUp, doesItAddsUpN } = require("../i-can-haz-addends");
 
 describe("I can haz addends?", function () {
-  describe("it adds up", function () {
+  describe("doesItAddUp", function () {
     it("should throw if result is invalid", function () {
       assert.throws(doesItAddUp.bind(null, []), {
         message: "The result must be a number",
@@ -47,7 +47,7 @@ describe("I can haz addends?", function () {
     });
   });
 
-  describe("itAddsUpN", function () {
+  describe("doesItAddsUpN", function () {
     it("should throw if result is invalid", function () {
       assert.throws(doesItAddsUpN.bind(null, []), {
         message: "The result must be a number",
@@ -63,21 +63,21 @@ describe("I can haz addends?", function () {
       });
     });
 
-    it("should throw if items is invalid", function () {
+    it("should throw if valuesToAddUp is invalid", function () {
       assert.throws(doesItAddsUpN.bind(null, [], 0), {
-        message: "The items must be a number",
+        message: "The valuesToAddUp must be a number",
       });
       assert.throws(doesItAddsUpN.bind(null, [], 0, ""), {
-        message: "The items must be a number",
+        message: "The valuesToAddUp must be a number",
       });
       assert.throws(doesItAddsUpN.bind(null, [], 0, Number.NaN), {
-        message: "The items must be a number",
+        message: "The valuesToAddUp must be a number",
       });
       assert.throws(doesItAddsUpN.bind(null, [], 0, null), {
-        message: "The items must be a number",
+        message: "The valuesToAddUp must be a number",
       });
       assert.throws(doesItAddsUpN.bind(null, [], 0, 0), {
-        message: "The items need to be at least 1",
+        message: "The valuesToAddUp need to be at least 1",
       });
     });
 
@@ -85,38 +85,38 @@ describe("I can haz addends?", function () {
       assert.equal(doesItAddsUpN([], 0, 1), false);
     });
 
-    it("should return true for items of 1 if the array contains item", function () {
+    it("should return true for valuesToAddUp of 1 if the array contains item", function () {
       assert.equal(doesItAddsUpN([1, 0], 0, 1), true);
     });
 
-    it("should return true for items of 1 if the array contains item", function () {
+    it("should return true for valuesToAddUp of 1 if the array contains item", function () {
       assert.equal(doesItAddsUpN([1, 0], 0, 1), true);
     });
 
-    it("should return false if 2 items do not add up", function () {
+    it("should return false if 2 valuesToAddUp do not add up", function () {
       assert.equal(doesItAddsUpN([1, 2], 4, 2), false);
     });
 
-    it("should return true if 2 items add up", function () {
+    it("should return true if 2 valuesToAddUp add up", function () {
       assert.equal(doesItAddsUpN([1, 2], 3, 2), true);
     });
 
-    it("should return true if 2 items add up to 17", function () {
+    it("should return true if 2 valuesToAddUp add up to 17", function () {
       assert.equal(doesItAddsUpN([10, 15, 3, 7], 17, 2), true);
     });
 
-    it("should return true if 2 items add up to 20", function () {
+    it("should return true if 2 valuesToAddUp add up to 20", function () {
       assert.equal(doesItAddsUpN([10, 15, 3, 10], 20, 2), true);
     });
 
-    it("should return true if 2 items add up to 0", function () {
+    it("should return true if 2 valuesToAddUp add up to 0", function () {
       assert.equal(doesItAddsUpN([0, 1, 2, 0], 0, 2), true);
     });
 
     const N = Array.from({ length: 5 }, (_, index) => index + 1);
 
     N.forEach((n) => {
-      describe(`${n} items adds up`, function () {
+      describe(`${n} values to add up`, function () {
         it("should return false if not enough items", function () {
           const zeros = Array.from({ length: n - 1 }, () => 0);
           assert.equal(doesItAddsUpN(zeros, 0, n), false);
