@@ -42,8 +42,6 @@ describe("diamond", function () {
       const diamond = create(letter);
       /** @type {string[]} The list of lines. */
       const lines = diamond.split("\n");
-      /** @type {number} The index of the middle line including it. */
-      const middleIndexInclusive = Math.ceil(lines.length / 2);
       /** @type {number} The index of the line before the middle. */
       const middleIndexExclusive = Math.floor(lines.length / 2);
 
@@ -59,24 +57,18 @@ describe("diamond", function () {
 
       it("should be symmetric on the Y axis", function () {
         assert.equal(lines.length > 0, true);
-        const firstHalf = lines.slice(0, middleIndexInclusive);
-        const secondHalf = lines.slice(middleIndexExclusive);
-        assert.deepEqual(secondHalf.reverse(), firstHalf);
+        assert.deepEqual(lines.slice().reverse(), lines);
       });
 
       it("should be symmetric on the X axis", function () {
         assert.equal(lines.length > 0, true);
-        const firstHalf = lines.map((line) =>
-          line.slice(0, Math.ceil(line.length / 2))
-        );
-        const secondHalf = lines.map((line) =>
+        const reverseRows = lines.map((line) =>
           line
-            .slice(Math.floor(line.length / 2))
             .split("")
             .reverse()
             .join("")
         );
-        assert.deepEqual(secondHalf, firstHalf);
+        assert.deepEqual(reverseRows, lines);
       });
 
       it(`should have ${letter} at the edges of the middle`, function () {

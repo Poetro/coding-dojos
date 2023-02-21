@@ -45,7 +45,7 @@ namespace Diamond {
    * @param character The maximum character to use.
    * @returns The lines shaping the 💎.
    */
-  interface create {
+  export interface create {
     (character: string): string
   }
 }
@@ -73,16 +73,6 @@ Given `[10, 15, 3, 7]` and `result` of `17`, return `true` since `10 + 7` is `17
 ```typescript
 namespace ICanHazAddends {
   /**
-   * Checks if two numbers in values add up to result.
-   *
-   * @param values The values to search in.
-   * @param result The result to look for.
-   * @returns Some values add up to the required result.
-   */
-  interface doesItAddUp {
-    (values: number[], result: number): boolean
-  }
-  /**
    * Checks if N numbers in values add up to result.
    *
    * @param values The values to search in.
@@ -90,8 +80,8 @@ namespace ICanHazAddends {
    * @param valuesToAddUp The number of values to add up.
    * @returns Some values add up to the required result.
    */
-  interface doesItAddsUpN {
-    (values: number[], result: number, valuesToAddUp: number): boolean
+  export interface doesItAddUp {
+    (values: number[], result: number, valuesToAddUp?: number): boolean
   }
 }
 ```

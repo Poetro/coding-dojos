@@ -1,29 +1,14 @@
-module.exports = { doesItAddUp, doesItAddsUpN };
-
-/**
- * Checks if two numbers in values add up to result.
- *
- * @param {number[]} values The values to search in.
- * @param {number} result The result to look for.
- * @returns {boolean} Some values add up to the required result.
- */
-function doesItAddUp(values, result) {
-  // Part of the API, validate inputs.
-  if (typeof result !== "number" || Number.isNaN(result))
-    throw new TypeError("The result must be a number");
-
-  return _doesItAddUp(values, result);
-}
+module.exports = { doesItAddUp };
 
 /**
  * Checks if N numbers in values add up to result.
  *
  * @param {number[]} values The values to search in.
  * @param {number} result The result to look for.
- * @param {number} valuesToAddUp The number of values to add up.
+ * @param {number} [valuesToAddUp=2] The number of values to add up.
  * @returns {boolean} Some values add up to the required result.
  */
-function doesItAddsUpN(values, result, valuesToAddUp) {
+function doesItAddUp(values, result, valuesToAddUp = 2) {
   // Part of the API, validate inputs.
   if (typeof result !== "number" || Number.isNaN(result))
     throw new TypeError("The result must be a number");
